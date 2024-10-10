@@ -119,6 +119,7 @@ export class Pgmq {
    * Delete a message from the queue
    * @param queue - the name of the queue
    * @param id - the id of the message to delete
+   * @return the id of the message that was created
    */
   public async deleteMessage(queue: string, id: number) {
     const query = `DELETE
@@ -135,6 +136,7 @@ export class Pgmq {
    * Archives a message from the queue to its matching archive
    * @param queue - the name of the queue / archive
    * @param id - the id of the message to delete
+   * @return the id of the message that was created
    */
   public async archiveMessage(queue: string, id: number): Promise<number> {
     const query = `WITH archived AS (
