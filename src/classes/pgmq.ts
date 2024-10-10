@@ -71,10 +71,10 @@ export class Pgmq {
 
   /**
    * Write a message to the queue.
-   * If queue doesn't exist, will throw error. See [createQueue]{@link createQueue} 
+   * If queue doesn't exist, will throw error. See [createQueue]{@link createQueue}
    * @param queue - the name of the queue to send the message to.
    * @param message - the object to put as the payload of the message.
-   * @param vt - the visibility timeout of the message. The visibility timeout 
+   * @param vt - the visibility timeout of the message. The visibility timeout
    * defines the time a message will stay hidden after being saved.
    * @return the id of the message that was created
    * **/
@@ -95,7 +95,7 @@ export class Pgmq {
    * @param vt - the visibility timeout of the message. The visibility timeout
    * defines the time a message will stay hidden after being retrieved, allowing other
    * consumers to process it later if it was not removed from the queue
-   * @return the whole [message]{@link Message}, including the id, read count and the actual message within 
+   * @return the whole [message]{@link Message}, including the id, read count and the actual message within
    */
   public async readMessage<T>(queue: string, vt: number) {
     const connection = await this.pool.connect()
