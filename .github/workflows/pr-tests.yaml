@@ -6,7 +6,7 @@ on:
 jobs:
   test:
     name: mocha test
-    runs-on: ubuntu-latest
+    run-on: ubuntu-latest
     services:
       postgres:
         image: postgres
@@ -29,12 +29,12 @@ jobs:
       - name: install pnpm
         uses: pnpm/action-setup@v4
       - name: install dependencies
-        runs: pnpm install
+        run: pnpm install
       - name: run lint
-        runs: pnpm run lint
+        run: pnpm run lint
       - name: run prettier
-        runs: pnpm run format:check
+        run: pnpm run format:check
       - name: run tests
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/pgmq
-        runs: pnpm run tests
+        run: pnpm run tests
