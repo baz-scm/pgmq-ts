@@ -28,6 +28,12 @@ export class Pgmq {
     await connection.query(query)
   }
 
+  public async deleteSchema() {
+    const connection = await this.pool.connect()
+    const query = `DROP SCHEMA IF EXISTS ${PGMQ_SCHEMA}`
+    await connection.query(query)
+  }
+
   /**
    * Creates a queue and a matching archive if does not exist. If queue or archive already exist does not throw error
    * @param name - the name of the queue
