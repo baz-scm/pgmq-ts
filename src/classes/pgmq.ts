@@ -185,7 +185,7 @@ const validateQueueName = (name: string) => {
   const alphanumericRegex = /^[a-zA-Z0-9_]+$/
   if (!alphanumericRegex.test(name)) {
     throw new Error(
-        `Queue name must be made of only alphanumeric characters and the '_' character`
+      `Queue name must be made of only alphanumeric characters and the '_' character`
     )
   }
 }
