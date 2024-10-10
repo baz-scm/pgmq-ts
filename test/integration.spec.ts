@@ -41,7 +41,6 @@ describe("Integration test", () => {
 
   after(async () => {
     await pgmq.deleteQueue(QUEUE)
-    await pgmq.deleteSchema()
   })
 
   beforeEach(async () => {

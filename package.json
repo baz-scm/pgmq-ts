@@ -4,7 +4,7 @@
   "main": "index.ts",
   "scripts": {
     "lint": "eslint src --cache",
-    "format:write": "prettier --write \"**/*.{ts,tsx}\"",
+    "format:fix": "prettier --write \"**/*.{ts,tsx}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx}\"",
     "test": "mocha --require ts-node/register test/**/*.spec.ts --exit"
   },
