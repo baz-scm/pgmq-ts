@@ -21,7 +21,7 @@ describe("Integration test", () => {
     await pgmq.createSchema()
     await pgmq.createQueue(QUEUE)
   })
-  
+
   const pgmq = new PGMQ(connString)
   describe("Send message", () => {
     it("should send the message", async () => {
