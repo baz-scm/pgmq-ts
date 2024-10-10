@@ -39,4 +39,4 @@ jobs:
       - name: run tests
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/pgmq
-        run: pnpm run tests
+        run: pnpm run test
