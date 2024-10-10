@@ -28,6 +28,8 @@ jobs:
           node-version: 22
       - name: install pnpm
         uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - name: install dependencies
         run: pnpm install
       - name: run lint
