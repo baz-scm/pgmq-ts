@@ -100,10 +100,10 @@ export class Pgmq {
   public async readMessage<T>(queue: string, vt: number) {
     const connection = await this.pool.connect()
     const query = `WITH cte AS
-                            (SELECT msg_id
-                             FROM ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue}
-                             ORDER BY msg_id
-                             LIMIT 1 FOR UPDATE SKIP LOCKED)
+                          (SELECT msg_id
+                           FROM ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue}
+                           ORDER BY msg_id
+                           LIMIT 1 FOR UPDATE SKIP LOCKED)
                    UPDATE ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue} t
                    SET vt      = now() + interval '${vt} seconds',
                        read_ct = read_ct + 1
