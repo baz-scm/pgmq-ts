@@ -3,6 +3,7 @@
   "version": "0.2.3",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "files": ["dist/src"],
   "scripts": {
     "build": "tsc",
     "prepare": "pnpm run lint && pnpm run format:fix",
