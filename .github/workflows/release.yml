@@ -46,7 +46,7 @@ jobs:
         with:
           version: 9
       - name: install dependencies
-        run: pnpm install --prod
+        run: pnpm install
       - name: publish to npm
         run: pnpm publish --provenance --access public
         env:
