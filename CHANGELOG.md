@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1](https://github.com/baz-scm/pgmq-ts/compare/v0.2.0...v0.2.1) (2024-10-11)
+
+
+### 🐛 Bug Fixes
+
+* fix .npmignore ([#10](https://github.com/baz-scm/pgmq-ts/issues/10)) ([527c5e3](https://github.com/baz-scm/pgmq-ts/commit/527c5e3ab876eaad0f9c47ad4e53db4f75e334b0))
+* rename types ([#11](https://github.com/baz-scm/pgmq-ts/issues/11)) ([40abef3](https://github.com/baz-scm/pgmq-ts/commit/40abef341aae75800b4114efa724d8d977cba955))
+
 ## [0.2.0](https://github.com/baz-scm/pgmq-ts/compare/v0.1.2...v0.2.0) (2024-10-11)
 
 
