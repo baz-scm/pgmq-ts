@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.6](https://github.com/baz-scm/pgmq-ts/compare/v0.2.5...v0.2.6) (2024-10-11)
+
+
+### 🐛 Bug Fixes
+
+* Leverage GH app token instead of user PAT ([30334bd](https://github.com/baz-scm/pgmq-ts/commit/30334bd613be54c5524d0ba8671a838e67bd5e5f))
+* Move all SQL to queries.ts ([876cfe4](https://github.com/baz-scm/pgmq-ts/commit/876cfe4bbbb0fc9a20b0cde0495c16bdaa97ebfa))
+
 ## [0.2.5](https://github.com/baz-scm/pgmq-ts/compare/v0.2.4...v0.2.5) (2024-10-11)
 
 
