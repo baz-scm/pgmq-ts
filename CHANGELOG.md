@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/baz-scm/pgmq-ts/compare/v0.2.2...v0.2.3) (2024-10-11)
+
+
+### 🐛 Bug Fixes
+
+* publish compiled module ([73e8fce](https://github.com/baz-scm/pgmq-ts/commit/73e8fcee1cf79d30c54bed1b8ede7fec7443b5a1))
+
 ## [0.2.2](https://github.com/baz-scm/pgmq-ts/compare/v0.2.1...v0.2.2) (2024-10-11)
 
 
