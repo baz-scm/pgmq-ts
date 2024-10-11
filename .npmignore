@@ -7,6 +7,7 @@ node_modules
 prettier.config.mjs
 tsconfig.json
 test
+src
 release-please-config.json
 .release-please-manifest.json
 eslint.config.mjs
