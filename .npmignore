@@ -3,8 +3,13 @@
 .idea
 coverage
 node_modules
-src
 .eslintrc.js
 prettier.config.mjs
 tsconfig.json
 test
+release-please-config.json
+.release-please-manifest.json
+eslint.config.mjs
+CHANGELOG.md
+.mocharc.json
+.eslintcache
