@@ -10,11 +10,14 @@
     "test": "mocha --require ts-node/register test/**/*.spec.ts --exit"
   },
   "keywords": [],
-  "author": "",
+  "author": "Baz",
   "license": "MIT",
   "description": "Typescript wrapper equivalent for pgmq-rs",
   "dependencies": {
     "pg": "^8.13.0"
+  },
+  "repository": {
+    "url": "https://github.com/baz-scm/pgmq-ts"
   },
   "devDependencies": {
     "@types/chai": "^5.0.0",
