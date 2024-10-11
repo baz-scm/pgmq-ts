@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.2.0](https://github.com/baz-scm/pgmq-ts/compare/v0.1.2...v0.2.0) (2024-10-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Add types ([#8](https://github.com/baz-scm/pgmq-ts/issues/8))
+
+### 🐛 Bug Fixes
+
+* release.yml pnpm install ([#7](https://github.com/baz-scm/pgmq-ts/issues/7)) ([25fee68](https://github.com/baz-scm/pgmq-ts/commit/25fee68274ef75148c1312813fdb5c0ec1dfb817))
+
+
+### ✨ New Features
+
+* Add types ([#8](https://github.com/baz-scm/pgmq-ts/issues/8)) ([2acd0af](https://github.com/baz-scm/pgmq-ts/commit/2acd0afecbfd0c37dadfb398fe4ca42db679304a))
+
 ## [0.1.2](https://github.com/baz-scm/pgmq-ts/compare/v0.1.1...v0.1.2) (2024-10-11)
 
 
