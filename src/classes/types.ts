@@ -1,4 +1,4 @@
-export interface Message<T> {
+export interface Types<T> {
   msgId: number
   readCount: number
   enqueuedAt: Date
@@ -14,7 +14,7 @@ interface DbMessage {
   message: string
 }
 
-export function parseDbMessage<T>(msg: DbMessage): Message<T> {
+export function parseDbMessage<T>(msg: DbMessage): Types<T> {
   if (msg == null) return msg
   return {
     msgId: parseInt(msg.msg_id),
