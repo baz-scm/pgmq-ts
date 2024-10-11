@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.5](https://github.com/baz-scm/pgmq-ts/compare/v0.2.4...v0.2.5) (2024-10-11)
+
+
+### 🐛 Bug Fixes
+
+* don't drop comments ([01eb495](https://github.com/baz-scm/pgmq-ts/commit/01eb495cdec07973c751c1cab6cb7987537ef802))
+* main and types path ([709cddf](https://github.com/baz-scm/pgmq-ts/commit/709cddf5add7f84d92f397b947aa1e53e8fb67a5))
+
 ## [0.2.4](https://github.com/baz-scm/pgmq-ts/compare/v0.2.3...v0.2.4) (2024-10-11)
 
 
