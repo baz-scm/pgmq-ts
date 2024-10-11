@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4](https://github.com/baz-scm/pgmq-ts/compare/v0.2.3...v0.2.4) (2024-10-11)
+
+
+### 🐛 Bug Fixes
+
+* package dist dir ([62eaba6](https://github.com/baz-scm/pgmq-ts/commit/62eaba6ba38e3286db0658af5d2b9ae5a7d09b8c))
+
 ## [0.2.3](https://github.com/baz-scm/pgmq-ts/compare/v0.2.2...v0.2.3) (2024-10-11)
 
 
