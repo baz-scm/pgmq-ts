@@ -1,9 +1,11 @@
 {
   "name": "@baz-scm/pgmq-ts",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist/src"],
+  "files": [
+    "dist/src"
+  ],
   "scripts": {
     "build": "tsc",
     "prepare": "pnpm run lint && pnpm run format:fix",
