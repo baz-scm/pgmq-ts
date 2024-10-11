@@ -1,0 +1,10 @@
+.github
+.vscode
+.idea
+coverage
+node_modules
+src
+.eslintrc.js
+prettier.config.mjs
+tsconfig.json
+test
