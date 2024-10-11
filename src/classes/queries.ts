@@ -1,6 +1,14 @@
-export const PGMQ_SCHEMA = "pgmq"
+const PGMQ_SCHEMA = "pgmq"
 const QUEUE_PREFIX = "q"
 const ARCHIVE_PREFIX = "a"
+
+export function createSchemQuery() {
+  return `CREATE SCHEMA IF NOT EXISTS ${PGMQ_SCHEMA}`
+}
+
+export function deleteSchemaQuery() {
+  return `DROP SCHEMA IF EXISTS ${PGMQ_SCHEMA}`
+}
 
 export function createQueueQuery(name: string) {
   return `
@@ -31,22 +39,22 @@ export function deleteQueueQuery(name: string) {
 
 export function sendQuery(queue: string, vt: number) {
   return `INSERT INTO ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue} (vt, message)
-                   VALUES ((now() + interval '${vt} seconds'), $1::jsonb)
-                   RETURNING msg_id;`
+            VALUES ((now() + interval '${vt} seconds'), $1::jsonb)
+            RETURNING msg_id;`
 }
 
 export function readQuery(queue: string, vt: number) {
   return `WITH cte AS
-                                (SELECT msg_id
-                                 FROM ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue}
-                                 ORDER BY msg_id
-                                 LIMIT 1 FOR UPDATE SKIP LOCKED)
-                       UPDATE ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue} t
-                       SET vt      = now() + interval '${vt} seconds',
-                           read_ct = read_ct + 1
-                       FROM cte
-                       WHERE t.msg_id = cte.msg_id
-                       RETURNING *;`
+                     (SELECT msg_id
+                      FROM ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue}
+                      ORDER BY msg_id
+                      LIMIT 1 FOR UPDATE SKIP LOCKED)
+            UPDATE ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue} t
+            SET vt      = now() + interval '${vt} seconds',
+                read_ct = read_ct + 1
+            FROM cte
+            WHERE t.msg_id = cte.msg_id
+            RETURNING *;`
 }
 
 export function archiveQuery(queue: string, id: number) {

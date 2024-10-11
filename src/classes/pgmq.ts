@@ -3,9 +3,10 @@ import { parseDbMessage } from "./types"
 import {
   archiveQuery,
   createQueueQuery,
+  createSchemQuery,
   deleteQuery,
   deleteQueueQuery,
-  PGMQ_SCHEMA,
+  deleteSchemaQuery,
   readQuery,
   sendQuery,
 } from "./queries"
@@ -27,14 +28,12 @@ export class Pgmq {
 
   public async createSchema() {
     const connection = await this.pool.connect()
-    const query = `CREATE SCHEMA IF NOT EXISTS ${PGMQ_SCHEMA}`
-    await connection.query(query)
+    await connection.query(createSchemQuery())
   }
 
   public async deleteSchema() {
     const connection = await this.pool.connect()
-    const query = `DROP SCHEMA IF EXISTS ${PGMQ_SCHEMA}`
-    await connection.query(query)
+    await connection.query(deleteSchemaQuery())
   }
 
   /**
