@@ -83,4 +83,34 @@ describe("Integration test", () => {
     const res = await pgmq.deleteMessage(QUEUE, id)
     expect(res).to.eq(id)
   })
+
+  describe("Test Queue contracts", () => {
+    const queue = pgmq.getQueue(QUEUE)
+    it("should read message", async () => {
+      const msg = await queue.readMessage<TestMessage>(60)
+      expect(msg?.message?.org).to.eq("acme")
+    })
+
+    it("should archive message", async () => {
+      const msg = await queue.readMessage(60)
+      const id = msg?.msgId
+      if (!id) {
+        assert.fail("Expected id to be a number")
+      }
+      expect(msg?.readCount).to.be.gt(0)
+      const res = await queue.archiveMessage(id)
+      expect(res).to.eq(id)
+    })
+
+    it("should delete message", async () => {
+      const msg = await queue.readMessage(60)
+      const id = msg?.msgId
+      if (!id) {
+        assert.fail("Expected id to be a number")
+      }
+      expect(msg?.readCount).to.be.gt(0)
+      const res = await queue.deleteMessage(id)
+      expect(res).to.eq(id)
+    })
+  })
 })

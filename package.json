@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "main": "index.ts",
   "scripts": {
+    "prepare": "pnpm run lint && pnpm run format:fix",
     "lint": "eslint src --cache",
     "format:fix": "prettier --write \"**/*.{ts,tsx}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx}\"",
