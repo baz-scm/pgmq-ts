@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/baz-scm/pgmq-ts/compare/v0.2.1...v0.2.2) (2024-10-11)
+
+
+### 🐛 Bug Fixes
+
+* set repository url ([#13](https://github.com/baz-scm/pgmq-ts/issues/13)) ([f040338](https://github.com/baz-scm/pgmq-ts/commit/f040338b96f8d6693e4da499531df08b60fb94ba))
+
 ## [0.2.1](https://github.com/baz-scm/pgmq-ts/compare/v0.2.0...v0.2.1) (2024-10-11)
 
 
