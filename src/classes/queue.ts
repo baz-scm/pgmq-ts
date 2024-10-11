@@ -1,6 +1,6 @@
 import { Pool } from "pg"
 import { archiveQuery, deleteQuery, readQuery } from "./queries"
-import { parseDbMessage } from "./message"
+import { parseDbMessage } from "./types"
 
 export class Queue {
   private pool: Pool

@@ -1,5 +1,5 @@
 import { Pool } from "pg"
-import { parseDbMessage } from "./message"
+import { parseDbMessage } from "./types"
 import {
   archiveQuery,
   createQueueQuery,
