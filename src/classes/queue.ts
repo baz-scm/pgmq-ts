@@ -15,6 +15,7 @@ export class Queue {
     const query = readQuery(this.name, vt)
     const conn = await this.pool.connect()
     const result = await conn.query(query)
+    conn.release()
     return parseDbMessage<T>(result.rows[0])
   }
 
