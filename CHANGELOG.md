@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.7](https://github.com/baz-scm/pgmq-ts/compare/v0.2.6...v0.2.7) (2024-10-20)
+
+
+### 🐛 Bug Fixes
+
+* connection release on mesage read ([#19](https://github.com/baz-scm/pgmq-ts/issues/19)) ([a1c1e81](https://github.com/baz-scm/pgmq-ts/commit/a1c1e811f93bdc80fa61200febf2882a2403d842))
+
 ## [0.2.6](https://github.com/baz-scm/pgmq-ts/compare/v0.2.5...v0.2.6) (2024-10-11)
 
 
