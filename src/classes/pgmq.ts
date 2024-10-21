@@ -1,4 +1,4 @@
-import { Pool } from "pg"
+import { Pool, PoolConfig } from "pg"
 import { parseDbMessage } from "./types"
 import {
   archiveQuery,
@@ -22,8 +22,10 @@ const MAX_PGMQ_QUEUE_LEN = NAMELEN - 1 - BIGGEST_CONCAT.length
 export class Pgmq {
   private pool: Pool
 
-  public constructor(connectionString: string) {
-    this.pool = new Pool({ connectionString })
+  public constructor(config: string | PoolConfig) {
+    this.pool = new Pool(
+      typeof config === "string" ? { connectionString: config } : config
+    )
   }
 
   public async createSchema() {
