@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.8](https://github.com/baz-scm/pgmq-ts/compare/v0.2.7...v0.2.8) (2024-10-22)
+
+
+### ✨ New Features
+
+* Close connection pool gracefully ([#23](https://github.com/baz-scm/pgmq-ts/issues/23)) ([ae9a6bb](https://github.com/baz-scm/pgmq-ts/commit/ae9a6bb4f5f1f12e0324fa8b4ce60922abc3a673))
+
 ## [0.2.7](https://github.com/baz-scm/pgmq-ts/compare/v0.2.6...v0.2.7) (2024-10-20)
 
 
