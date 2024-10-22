@@ -20,10 +20,14 @@ const MAX_PGMQ_QUEUE_LEN = NAMELEN - 1 - BIGGEST_CONCAT.length
 /** This is the central class this library exports
  * @constructor requires a valid PG connection string. Example: postgresql://user:password@localhost:5432/pgmq  **/
 export class Pgmq {
-  private pool: Pool
+  private readonly pool: Pool
 
   public constructor(connectionString: string) {
     this.pool = new Pool({ connectionString })
+  }
+
+  public async end() {
+    await this.pool.end()
   }
 
   public async createSchema() {
