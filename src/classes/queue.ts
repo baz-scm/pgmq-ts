@@ -11,12 +11,22 @@ export class Queue {
     this.name = name
   }
 
+  /**
+   * Read a message from the queue
+   * @param vt - the visibility timeout of the message. The visibility timeout
+   * defines the time a message will stay hidden after being retrieved, allowing other
+   * consumers to process it later if it was not removed from the queue
+   * @return the whole [message]{@link Message}, including the id, read count and the actual message within if exists
+   */
   public async readMessage<T>(vt = 0) {
     const query = readQuery(this.name, vt)
     const conn = await this.pool.connect()
     const result = await conn.query(query)
     conn.release()
-    return parseDbMessage<T>(result.rows[0])
+    if (result.rows.length > 0) {
+      return parseDbMessage<T>(result.rows[0])
+    }
+    return null
   }
 
   /**
