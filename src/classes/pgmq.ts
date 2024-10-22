@@ -91,14 +91,17 @@ export class Pgmq {
    * @param vt - the visibility timeout of the message. The visibility timeout
    * defines the time a message will stay hidden after being retrieved, allowing other
    * consumers to process it later if it was not removed from the queue
-   * @return the whole [message]{@link Message}, including the id, read count and the actual message within
+   * @return the whole [message]{@link Message}, including the id, read count and the actual message within if exists
    */
   public async readMessage<T>(queue: string, vt: number) {
     const connection = await this.pool.connect()
     const query = readQuery(queue, vt)
     const msg = await connection.query(query)
     connection.release()
-    return parseDbMessage<T>(msg.rows[0])
+    if (msg.rows.length > 0) {
+      return parseDbMessage<T>(msg.rows[0])
+    }
+    return null
   }
 
   /**
