@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.9](https://github.com/baz-scm/pgmq-ts/compare/v0.2.8...v0.2.9) (2024-10-22)
+
+
+### ✨ New Features
+
+* return nullable messages from readMessage if message doesn't exist ([#25](https://github.com/baz-scm/pgmq-ts/issues/25)) ([1d6d383](https://github.com/baz-scm/pgmq-ts/commit/1d6d3830ed8a9f92b6b6a7031b4cb88d4edc9b06))
+
 ## [0.2.8](https://github.com/baz-scm/pgmq-ts/compare/v0.2.7...v0.2.8) (2024-10-22)
 
 
