@@ -12,7 +12,7 @@ interface TestMessage {
   }
 }
 
-describe("Integration test", () => {
+describe("Integration tests", () => {
   const connString = process.env.DATABASE_URL
   if (!connString) {
     assert.fail("DATABASE_URL must be set for the tests to run")
@@ -57,12 +57,12 @@ describe("Integration test", () => {
     )
   })
 
-  it("should read message", async () => {
+  it("should read a message", async () => {
     const msg = await pgmq.readMessage<TestMessage>(QUEUE, 60)
     expect(msg?.message?.org).to.eq("acme")
   })
 
-  it("should archive message", async () => {
+  it("should archive a message", async () => {
     const msg = await pgmq.readMessage(QUEUE, 60)
     const id = msg?.msgId
     if (!id) {
@@ -73,7 +73,7 @@ describe("Integration test", () => {
     expect(res).to.eq(id)
   })
 
-  it("should delete message", async () => {
+  it("should delete a message", async () => {
     const msg = await pgmq.readMessage(QUEUE, 60)
     const id = msg?.msgId
     if (!id) {
@@ -91,7 +91,7 @@ describe("Integration test", () => {
       expect(msg?.message?.org).to.eq("acme")
     })
 
-    it("should archive message", async () => {
+    it("should archive a essage", async () => {
       const msg = await queue.readMessage(60)
       const id = msg?.msgId
       if (!id) {
@@ -102,7 +102,7 @@ describe("Integration test", () => {
       expect(res).to.eq(id)
     })
 
-    it("should delete message", async () => {
+    it("should delete a message", async () => {
       const msg = await queue.readMessage(60)
       const id = msg?.msgId
       if (!id) {
