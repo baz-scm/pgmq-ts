@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.10](https://github.com/baz-scm/pgmq-ts/compare/v0.2.9...v0.2.10) (2024-12-25)
+
+
+### 🐛 Bug Fixes
+
+* Improve test names ([#27](https://github.com/baz-scm/pgmq-ts/issues/27)) ([922631c](https://github.com/baz-scm/pgmq-ts/commit/922631c644c8de4dd8a4540014d565339bb6ee8f))
+
 ## [0.2.9](https://github.com/baz-scm/pgmq-ts/compare/v0.2.8...v0.2.9) (2024-10-22)
 
 
