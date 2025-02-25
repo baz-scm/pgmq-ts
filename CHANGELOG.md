@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.11](https://github.com/baz-scm/pgmq-ts/compare/v0.2.10...v0.2.11) (2025-02-25)
+
+
+### 🐛 Bug Fixes
+
+* bump to fix vulns ([#31](https://github.com/baz-scm/pgmq-ts/issues/31)) ([a1062bb](https://github.com/baz-scm/pgmq-ts/commit/a1062bbfaf0f8782cc945402154b60b1e0030e69))
+
 ## [0.2.10](https://github.com/baz-scm/pgmq-ts/compare/v0.2.9...v0.2.10) (2024-12-25)
 
 
