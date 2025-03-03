@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.3.0](https://github.com/baz-scm/pgmq-ts/compare/v0.2.11...v0.3.0) (2025-03-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* duplicate reads for multiple replicas ([#33](https://github.com/baz-scm/pgmq-ts/issues/33))
+
+### 🐛 Bug Fixes
+
+* duplicate reads for multiple replicas ([#33](https://github.com/baz-scm/pgmq-ts/issues/33)) ([900de6a](https://github.com/baz-scm/pgmq-ts/commit/900de6a56e6bf81d4507a485b2be2e6850dc7e4c))
+
 ## [0.2.11](https://github.com/baz-scm/pgmq-ts/compare/v0.2.10...v0.2.11) (2025-02-25)
 
 
