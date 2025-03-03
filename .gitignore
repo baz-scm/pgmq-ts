@@ -2,3 +2,4 @@ node_modules
 .eslintcache
 .idea
 dist
+.DS_Store

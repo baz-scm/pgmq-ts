@@ -47,6 +47,7 @@ export function readQuery(queue: string, vt: number) {
   return `WITH cte AS
                      (SELECT msg_id
                       FROM ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue}
+                      WHERE vt <= now()
                       ORDER BY msg_id
                       LIMIT 1 FOR UPDATE SKIP LOCKED)
             UPDATE ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue} t
