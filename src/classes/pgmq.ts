@@ -11,6 +11,7 @@ import {
   sendQuery,
 } from "./queries"
 import { Queue } from "./queue"
+import { executeQueryWithTransaction } from "./utils"
 
 // https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS
 const NAMELEN = 64
@@ -94,12 +95,10 @@ export class Pgmq {
    * @return the whole [message]{@link Message}, including the id, read count and the actual message within if exists
    */
   public async readMessage<T>(queue: string, vt: number) {
-    const connection = await this.pool.connect()
     const query = readQuery(queue, vt)
-    const msg = await connection.query(query)
-    connection.release()
-    if (msg.rows.length > 0) {
-      return parseDbMessage<T>(msg.rows[0])
+    const result = await executeQueryWithTransaction(this.pool, query)
+    if (result.rows.length > 0) {
+      return parseDbMessage<T>(result.rows[0])
     }
     return null
   }

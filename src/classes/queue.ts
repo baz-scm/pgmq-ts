@@ -1,6 +1,7 @@
 import { Pool } from "pg"
 import { archiveQuery, deleteQuery, readQuery } from "./queries"
 import { parseDbMessage } from "./types"
+import { executeQueryWithTransaction } from "./utils"
 
 export class Queue {
   private pool: Pool
@@ -20,9 +21,7 @@ export class Queue {
    */
   public async readMessage<T>(vt = 0) {
     const query = readQuery(this.name, vt)
-    const conn = await this.pool.connect()
-    const result = await conn.query(query)
-    conn.release()
+    const result = await executeQueryWithTransaction(this.pool, query)
     if (result.rows.length > 0) {
       return parseDbMessage<T>(result.rows[0])
     }
