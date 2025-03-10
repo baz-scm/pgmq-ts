@@ -148,12 +148,10 @@ describe("Integration tests", () => {
       const queue = pgmq.getQueue(name)
       while (true) {
         runs++
-        const messages = await Promise.all([
-          queue.readMessage<TestMessage>(60),
-          queue.readMessage<TestMessage>(60),
-          queue.readMessage<TestMessage>(60),
-          queue.readMessage<TestMessage>(60),
-        ])
+        // Create an array of 4 promises using Array.from for better readability
+        const messages = await Promise.all(
+          Array.from({ length: 4 }, () => queue.readMessage<TestMessage>(60))
+        )
         for (const m of messages) {
           if (m) {
             const index = m.message.metadata.index
@@ -180,7 +178,7 @@ describe("Integration tests", () => {
           break
         }
         if (runs > 1000) {
-          assert.fail(`Run ${readMessages.size} distinct messages`)
+          assert.fail(`Read ${readMessages.size} distinct messages`)
         }
       }
     })
