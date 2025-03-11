@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/baz-scm/pgmq-ts/compare/v0.3.0...v0.3.1) (2025-03-11)
+
+
+### 🐛 Bug Fixes
+
+* prevent duplicate message reads with transaction handling ([#35](https://github.com/baz-scm/pgmq-ts/issues/35)) ([c2b2cd5](https://github.com/baz-scm/pgmq-ts/commit/c2b2cd54bc9b967f82656d2fdc71a695a38fdc3f))
+
 ## [0.3.0](https://github.com/baz-scm/pgmq-ts/compare/v0.2.11...v0.3.0) (2025-03-03)
 
 
