@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/baz-scm/pgmq-ts/compare/v0.3.1...v0.3.2) (2025-03-16)
+
+
+### 🐛 Bug Fixes
+
+* Update utils.ts lint ([#37](https://github.com/baz-scm/pgmq-ts/issues/37)) ([89ac660](https://github.com/baz-scm/pgmq-ts/commit/89ac6605bc1170a006f1c3c9ceb2550cdea802c5))
+
 ## [0.3.1](https://github.com/baz-scm/pgmq-ts/compare/v0.3.0...v0.3.1) (2025-03-11)
 
 
