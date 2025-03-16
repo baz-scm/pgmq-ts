@@ -11,19 +11,16 @@ export async function executeQueryWithTransaction(
   query: string
 ): Promise<QueryResult> {
   const client = await pool.connect()
-  
+
   try {
-    await client.query('BEGIN')
+    await client.query("BEGIN")
     const result = await client.query(query)
-    await client.query('COMMIT')
+    await client.query("COMMIT")
     return result
   } catch (error) {
-    try {
-      await client.query('ROLLBACK')
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (rollbackError) {
-      // Ignore rollback errors
-    }
+    await client
+      .query("ROLLBACK")
+      .catch(() => console.log("Error rolling back transaction"))
     throw error
   } finally {
     // This ensures connection is always released, even if there's an error
