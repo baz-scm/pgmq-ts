@@ -18,10 +18,9 @@ export async function executeQueryWithTransaction(
     await client.query("COMMIT")
     return result
   } catch (error) {
-    await client.query("ROLLBACK").catch(() => {
-      // Ignore rollback errors
-      console.log("Error rolling back transaction")
-    })
+    await client
+      .query("ROLLBACK")
+      .catch(() => console.log("Error rolling back transaction"))
     throw error
   } finally {
     // This ensures connection is always released, even if there's an error
