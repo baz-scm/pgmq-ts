@@ -18,12 +18,10 @@ export async function executeQueryWithTransaction(
     await client.query("COMMIT")
     return result
   } catch (error) {
-    try {
-      await client.query("ROLLBACK")
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (rollbackError) {
+    await client.query("ROLLBACK").catch(() => {
       // Ignore rollback errors
-    }
+      console.log("Error rolling back transaction")
+    })
     throw error
   } finally {
     // This ensures connection is always released, even if there's an error
