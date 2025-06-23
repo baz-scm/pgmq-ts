@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.3](https://github.com/baz-scm/pgmq-ts/compare/v0.3.2...v0.3.3) (2025-06-23)
+
+
+### 🐛 Bug Fixes
+
+* brace expansion vuln ([#40](https://github.com/baz-scm/pgmq-ts/issues/40)) ([ccb3ae4](https://github.com/baz-scm/pgmq-ts/commit/ccb3ae49671d19dc4a71a6aeb3dd8fa1288de6d4))
+
 ## [0.3.2](https://github.com/baz-scm/pgmq-ts/compare/v0.3.1...v0.3.2) (2025-03-16)
 
 
