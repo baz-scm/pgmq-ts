@@ -22,7 +22,7 @@
     "postgresql-extension",
     "pgmq"
   ],
-  "author": "Baz",
+  "author": "Baz Technologies",
   "license": "MIT",
   "description": "Typescript wrapper equivalent for pgmq-rs",
   "dependencies": {
