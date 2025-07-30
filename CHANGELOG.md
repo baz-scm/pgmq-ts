@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.4](https://github.com/baz-scm/pgmq-ts/compare/v0.3.3...v0.3.4) (2025-07-30)
+
+
+### 🐛 Bug Fixes
+
+* bump vulns ([#42](https://github.com/baz-scm/pgmq-ts/issues/42)) ([1ca67da](https://github.com/baz-scm/pgmq-ts/commit/1ca67da720354b239b2d9a69e8c6c5e4c99d2506))
+
 ## [0.3.3](https://github.com/baz-scm/pgmq-ts/compare/v0.3.2...v0.3.3) (2025-06-23)
 
 
