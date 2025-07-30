@@ -33,6 +33,7 @@
     "url": "https://github.com/baz-scm/pgmq-ts"
   },
   "devDependencies": {
+    "@eslint/js": "^9.32.0",
     "@types/chai": "^5.0.0",
     "@types/eslint": "^9.6.1",
     "@types/mocha": "^10.0.9",
@@ -53,7 +54,8 @@
       "@eslint/plugin-kit@<0.2.3": ">=0.2.3",
       "esbuild@<=0.24.2": ">=0.25.0",
       "brace-expansion@>=1.0.0 <=1.1.11": ">=1.1.12",
-      "brace-expansion@>=2.0.0 <=2.0.1": ">=2.0.2"
+      "brace-expansion@>=2.0.0 <=2.0.1": ">=2.0.2",
+      "@eslint/plugin-kit@<0.3.4": ">=0.3.4"
     }
   }
 }
