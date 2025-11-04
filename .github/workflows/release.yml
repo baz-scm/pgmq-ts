@@ -19,15 +19,15 @@ jobs:
       contents: write # for googleapis/release-please-action to create release commit
       pull-requests: write # for googleapis/release-please-action to create release PR
     steps:
-      - id: create_token
-        uses: tibdex/github-app-token@v2
+      - uses: actions/create-github-app-token@v2
+        id: app-token
         with:
-          app_id: ${{ vars.CI_GITHUB_APP_ID }}
-          private_key: ${{ secrets.CI_GITHUB_APP_PRIVATE_KEY }}
+          app-id: ${{ vars.CI_GITHUB_APP_ID }}
+          private-key: ${{ secrets.CI_GITHUB_APP_PRIVATE_KEY }}
       - uses: googleapis/release-please-action@v4
         id: release
         with:
-          token: ${{ steps.create_token.outputs.token }}
+          token: ${{ steps.app-token.outputs.token }}
           target-branch: main
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
@@ -42,9 +42,9 @@ jobs:
       id-token: write # for npm to create release with provenance
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           registry-url: "https://registry.npmjs.org"
