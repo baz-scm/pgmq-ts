@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.3.5](https://github.com/baz-scm/pgmq-ts/compare/v0.3.4...v0.3.5) (2025-11-06)
+
+
+### ✨ New Features
+
+* export Queue class for type referencing ([#46](https://github.com/baz-scm/pgmq-ts/issues/46)) ([9aae68f](https://github.com/baz-scm/pgmq-ts/commit/9aae68f5a2dfd579687bd02c1f8ce301ffcb5648))
+
+## [0.3.4](https://github.com/baz-scm/pgmq-ts/compare/v0.3.3...v0.3.4) (2025-07-30)
+
+
+### 🐛 Bug Fixes
+
+* bump vulns ([#42](https://github.com/baz-scm/pgmq-ts/issues/42)) ([1ca67da](https://github.com/baz-scm/pgmq-ts/commit/1ca67da720354b239b2d9a69e8c6c5e4c99d2506))
+
 ## [0.3.3](https://github.com/baz-scm/pgmq-ts/compare/v0.3.2...v0.3.3) (2025-06-23)
 
 
