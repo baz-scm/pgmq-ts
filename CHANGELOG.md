@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.7](https://github.com/baz-scm/pgmq-ts/compare/v0.3.6...v0.3.7) (2026-02-01)
+
+
+### 🐛 Bug Fixes
+
+* Force release ([#52](https://github.com/baz-scm/pgmq-ts/issues/52)) ([3a66ad1](https://github.com/baz-scm/pgmq-ts/commit/3a66ad18ba7539b96f1a0825f6462efdf5f532de))
+
 ## [0.3.6](https://github.com/baz-scm/pgmq-ts/compare/v0.3.5...v0.3.6) (2026-02-01)
 
 
