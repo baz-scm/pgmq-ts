@@ -10,7 +10,7 @@ import { Pool, QueryResult } from "pg"
 export async function executeQueryWithTransaction(
   pool: Pool,
   query: string,
-  params?: any[]
+  params?: unknown[]
 ): Promise<QueryResult> {
   const client = await pool.connect()
 

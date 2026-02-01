@@ -70,10 +70,7 @@ export class Queue {
    * @param vt - the visibility timeout of the message
    * @return the oldest available message, or null if none available
    */
-  public async readMessageByGroupId<T>(
-    groupIdPath: string[],
-    vt: number
-  ) {
+  public async readMessageByGroupId<T>(groupIdPath: string[], vt: number) {
     const jsonPath = `{${groupIdPath.join(",")}}`
     const query = readMessageByGroupIdQuery(this.name, vt)
     const result = await executeQueryWithTransaction(this.pool, query, [

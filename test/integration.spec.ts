@@ -140,12 +140,22 @@ describe("Integration tests", () => {
       it("should read the oldest available message", async () => {
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "repo1", metadata: { site: "a.com" }, group_id: "123" },
+          {
+            org: "acme",
+            repo: "repo1",
+            metadata: { site: "a.com" },
+            group_id: "123",
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "repo2", metadata: { site: "b.com" }, group_id: "456" },
+          {
+            org: "acme",
+            repo: "repo2",
+            metadata: { site: "b.com" },
+            group_id: "456",
+          },
           0
         )
 
@@ -161,17 +171,32 @@ describe("Integration tests", () => {
       it("should skip groups where oldest message is in progress", async () => {
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "repo1", metadata: { site: "a.com" }, group_id: "123" },
+          {
+            org: "acme",
+            repo: "repo1",
+            metadata: { site: "a.com" },
+            group_id: "123",
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "repo2", metadata: { site: "b.com" }, group_id: "123" },
+          {
+            org: "acme",
+            repo: "repo2",
+            metadata: { site: "b.com" },
+            group_id: "123",
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "repo3", metadata: { site: "c.com" }, group_id: "456" },
+          {
+            org: "acme",
+            repo: "repo3",
+            metadata: { site: "c.com" },
+            group_id: "456",
+          },
           0
         )
 
@@ -206,17 +231,32 @@ describe("Integration tests", () => {
       it("should maintain FIFO within single group", async () => {
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "first", metadata: { site: "a.com" }, group_id: "999" },
+          {
+            org: "acme",
+            repo: "first",
+            metadata: { site: "a.com" },
+            group_id: "999",
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "second", metadata: { site: "a.com" }, group_id: "999" },
+          {
+            org: "acme",
+            repo: "second",
+            metadata: { site: "a.com" },
+            group_id: "999",
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "third", metadata: { site: "a.com" }, group_id: "999" },
+          {
+            org: "acme",
+            repo: "third",
+            metadata: { site: "a.com" },
+            group_id: "999",
+          },
           0
         )
 
@@ -249,17 +289,32 @@ describe("Integration tests", () => {
         // Simulate worker pattern: process different groups concurrently
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "g1_m1", metadata: { site: "a.com" }, group_id: "g1" },
+          {
+            org: "acme",
+            repo: "g1_m1",
+            metadata: { site: "a.com" },
+            group_id: "g1",
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "g1_m2", metadata: { site: "a.com" }, group_id: "g1" },
+          {
+            org: "acme",
+            repo: "g1_m2",
+            metadata: { site: "a.com" },
+            group_id: "g1",
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "g2_m1", metadata: { site: "b.com" }, group_id: "g2" },
+          {
+            org: "acme",
+            repo: "g2_m1",
+            metadata: { site: "b.com" },
+            group_id: "g2",
+          },
           0
         )
 
@@ -299,17 +354,32 @@ describe("Integration tests", () => {
       it("should read all messages for specific group in FIFO order", async () => {
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "repo1", metadata: { site: "a.com" }, group_id: "123" },
+          {
+            org: "acme",
+            repo: "repo1",
+            metadata: { site: "a.com" },
+            group_id: "123",
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "repo2", metadata: { site: "b.com" }, group_id: "123" },
+          {
+            org: "acme",
+            repo: "repo2",
+            metadata: { site: "b.com" },
+            group_id: "123",
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "repo3", metadata: { site: "c.com" }, group_id: "456" },
+          {
+            org: "acme",
+            repo: "repo3",
+            metadata: { site: "c.com" },
+            group_id: "456",
+          },
           0
         )
 
@@ -331,12 +401,22 @@ describe("Integration tests", () => {
       it("should read messages even with future vt", async () => {
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "future1", metadata: { site: "a.com" }, group_id: "future" },
+          {
+            org: "acme",
+            repo: "future1",
+            metadata: { site: "a.com" },
+            group_id: "future",
+          },
           3600 // 1 hour in future
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "future2", metadata: { site: "b.com" }, group_id: "future" },
+          {
+            org: "acme",
+            repo: "future2",
+            metadata: { site: "b.com" },
+            group_id: "future",
+          },
           3600
         )
 
@@ -364,12 +444,22 @@ describe("Integration tests", () => {
       it("should delete multiple messages by IDs", async () => {
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "del1", metadata: { site: "a.com" }, group_id: "del" },
+          {
+            org: "acme",
+            repo: "del1",
+            metadata: { site: "a.com" },
+            group_id: "del",
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "acme", repo: "del2", metadata: { site: "b.com" }, group_id: "del" },
+          {
+            org: "acme",
+            repo: "del2",
+            metadata: { site: "b.com" },
+            group_id: "del",
+          },
           0
         )
 
@@ -405,17 +495,29 @@ describe("Integration tests", () => {
       it("should work with nested JSON paths", async () => {
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "nested1", repo: "test1", metadata: { site: "site1.com", index: 1 } },
+          {
+            org: "nested1",
+            repo: "test1",
+            metadata: { site: "site1.com", index: 1 },
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "nested2", repo: "test2", metadata: { site: "site1.com", index: 2 } },
+          {
+            org: "nested2",
+            repo: "test2",
+            metadata: { site: "site1.com", index: 2 },
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "nested3", repo: "test3", metadata: { site: "site2.com", index: 3 } },
+          {
+            org: "nested3",
+            repo: "test3",
+            metadata: { site: "site2.com", index: 3 },
+          },
           0
         )
 
@@ -460,11 +562,19 @@ describe("Integration tests", () => {
       it("should read message by group ID", async () => {
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "queue", repo: "q1", metadata: { site: "a.com" }, group_id: "q1" },
+          {
+            org: "queue",
+            repo: "q1",
+            metadata: { site: "a.com" },
+            group_id: "q1",
+          },
           0
         )
 
-        const msg = await queue.readMessageByGroupId<TestMessage>(["group_id"], 60)
+        const msg = await queue.readMessageByGroupId<TestMessage>(
+          ["group_id"],
+          60
+        )
         expect(msg).to.not.be.null
         expect(msg?.message?.group_id).to.eq("q1")
       })
@@ -472,12 +582,22 @@ describe("Integration tests", () => {
       it("should read all messages by group ID", async () => {
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "queue", repo: "q2_1", metadata: { site: "a.com" }, group_id: "q2" },
+          {
+            org: "queue",
+            repo: "q2_1",
+            metadata: { site: "a.com" },
+            group_id: "q2",
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "queue", repo: "q2_2", metadata: { site: "b.com" }, group_id: "q2" },
+          {
+            org: "queue",
+            repo: "q2_2",
+            metadata: { site: "b.com" },
+            group_id: "q2",
+          },
           0
         )
 
@@ -493,12 +613,22 @@ describe("Integration tests", () => {
       it("should delete messages by IDs", async () => {
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "queue", repo: "q3_1", metadata: { site: "a.com" }, group_id: "q3" },
+          {
+            org: "queue",
+            repo: "q3_1",
+            metadata: { site: "a.com" },
+            group_id: "q3",
+          },
           0
         )
         await pgmq.sendMessage<TestMessage>(
           GROUP_FIFO_QUEUE,
-          { org: "queue", repo: "q3_2", metadata: { site: "b.com" }, group_id: "q3" },
+          {
+            org: "queue",
+            repo: "q3_2",
+            metadata: { site: "b.com" },
+            group_id: "q3",
+          },
           0
         )
 
