@@ -9,6 +9,7 @@ on:
       - '.*'
 
 permissions:
+  id-token: write # for npm to create release with provenance
   contents: read
   
 jobs:
@@ -57,6 +58,4 @@ jobs:
       - name: build
         run: pnpm build
       - name: publish to npm
-        run: pnpm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish
