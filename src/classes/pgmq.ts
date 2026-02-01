@@ -35,8 +35,7 @@ export class Pgmq {
   }
 
   public async createSchema() {
-    const connection = await this.pool.connect()
-    await connection.query(createSchemaQuery())
+    await this.pool.query(createSchemaQuery())
   }
 
   public async deleteSchema() {
