@@ -4,17 +4,21 @@ import { Pool, QueryResult } from "pg"
  * Execute a query with proper transaction handling and connection management
  * @param pool - The connection pool to use
  * @param query - The query to execute
+ * @param params - Optional query parameters
  * @returns The query result
  */
 export async function executeQueryWithTransaction(
   pool: Pool,
-  query: string
+  query: string,
+  params?: any[]
 ): Promise<QueryResult> {
   const client = await pool.connect()
 
   try {
     await client.query("BEGIN")
-    const result = await client.query(query)
+    const result = params
+      ? await client.query(query, params)
+      : await client.query(query)
     await client.query("COMMIT")
     return result
   } catch (error) {

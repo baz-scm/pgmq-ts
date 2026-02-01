@@ -76,3 +76,45 @@ export function deleteQuery(queue: string, id: number) {
             WHERE msg_id = ${id}
             RETURNING msg_id;`
 }
+
+export function readMessageByGroupIdQuery(queue: string, vt: number) {
+  return `WITH cte0 AS
+                     (SELECT message #>> $1 AS group_field, MIN(msg_id) AS msg_id
+                      FROM ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue}
+                      GROUP BY group_field),
+                 cte1 AS
+                     (SELECT t1.msg_id AS msg_id
+                      FROM ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue} AS t1
+                               JOIN cte0 AS t2 ON t1.message #>> $1 = t2.group_field AND t1.msg_id = t2.msg_id
+                      WHERE vt <= clock_timestamp()
+                      ORDER BY msg_id ASC
+                      LIMIT 1 FOR UPDATE SKIP LOCKED)
+            UPDATE ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue} m
+            SET vt      = clock_timestamp() + interval '${vt} seconds',
+                read_ct = read_ct + 1
+            FROM cte1
+            WHERE m.msg_id = cte1.msg_id
+            RETURNING m.*;`
+}
+
+export function readAllMessagesByGroupIdQuery(queue: string, vt: number) {
+  return `WITH cte AS
+                     (SELECT msg_id
+                      FROM ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue}
+                      WHERE message #>> $1 = $2
+                      ORDER BY msg_id
+                      FOR UPDATE SKIP LOCKED)
+            UPDATE ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue} t
+            SET vt      = now() + interval '${vt} seconds',
+                read_ct = read_ct + 1
+            FROM cte
+            WHERE t.msg_id = cte.msg_id
+            RETURNING t.*;`
+}
+
+export function deleteMessagesByIdsQuery(queue: string) {
+  return `DELETE
+            FROM ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue}
+            WHERE msg_id = ANY($1::bigint[])
+            RETURNING msg_id;`
+}
