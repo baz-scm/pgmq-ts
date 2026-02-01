@@ -16,7 +16,6 @@ import {
 import { Queue } from "./queue"
 import { executeQueryWithTransaction } from "./utils"
 
-// https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS
 const NAMELEN = 64
 const BIGGEST_CONCAT = "archived_at_idx_"
 const MAX_PGMQ_QUEUE_LEN = NAMELEN - 1 - BIGGEST_CONCAT.length
