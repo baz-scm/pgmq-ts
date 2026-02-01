@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.6](https://github.com/baz-scm/pgmq-ts/compare/v0.3.5...v0.3.6) (2026-02-01)
+
+
+### ✨ New Features
+
+* Support group FIFO ([#49](https://github.com/baz-scm/pgmq-ts/issues/49)) ([e457a75](https://github.com/baz-scm/pgmq-ts/commit/e457a754817fbabc661c000e73fd804ef427ba3a))
+
 ## [0.3.5](https://github.com/baz-scm/pgmq-ts/compare/v0.3.4...v0.3.5) (2025-11-06)
 
 
