@@ -58,4 +58,4 @@ jobs:
       - name: build
         run: pnpm build
       - name: publish to npm
-        run: pnpm publish
+        run: pnpm publish --provenance --access public
