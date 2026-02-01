@@ -74,7 +74,7 @@ interface Message<T> {
 
 ### 5. **Queries** (`src/classes/queries.ts`)
 SQL query builders for all operations:
-- Schema: `createSchemQuery()`, `deleteSchemaQuery()`
+- Schema: `createSchemaQuery()`, `deleteSchemaQuery()`
 - Queue: `createQueueQuery(name)`, `deleteQueueQuery(name)`
 - Message: `sendQuery(queue, vt)`, `readQuery(queue, vt)`, `deleteQuery(queue, id)`, `archiveQuery(queue, id)`
 

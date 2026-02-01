@@ -2,7 +2,7 @@ const PGMQ_SCHEMA = "pgmq"
 const QUEUE_PREFIX = "q"
 const ARCHIVE_PREFIX = "a"
 
-export function createSchemQuery() {
+export function createSchemaQuery() {
   return `CREATE SCHEMA IF NOT EXISTS ${PGMQ_SCHEMA}`
 }
 
@@ -103,7 +103,7 @@ export function readAllMessagesByGroupIdQuery(queue: string, vt: number) {
                       FROM ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue}
                       WHERE message #>> $1 = $2
                       ORDER BY msg_id
-                      FOR UPDATE SKIP LOCKED)
+                      FOR UPDATE)
             UPDATE ${PGMQ_SCHEMA}.${QUEUE_PREFIX}_${queue} t
             SET vt      = now() + interval '${vt} seconds',
                 read_ct = read_ct + 1

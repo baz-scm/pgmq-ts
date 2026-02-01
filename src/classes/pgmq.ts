@@ -3,7 +3,7 @@ import { parseDbMessage } from "./types"
 import {
   archiveQuery,
   createQueueQuery,
-  createSchemQuery,
+  createSchemaQuery,
   deleteQuery,
   deleteQueueQuery,
   deleteSchemaQuery,
@@ -36,7 +36,7 @@ export class Pgmq {
 
   public async createSchema() {
     const connection = await this.pool.connect()
-    await connection.query(createSchemQuery())
+    await connection.query(createSchemaQuery())
   }
 
   public async deleteSchema() {
@@ -196,9 +196,7 @@ export class Pgmq {
     ids: number[]
   ): Promise<number[]> {
     const query = deleteMessagesByIdsQuery(queue)
-    const connection = await this.pool.connect()
-    const result = await connection.query(query, [ids])
-    connection.release()
+    const result = await executeQueryWithTransaction(this.pool, query, [ids])
     return result.rows.map((row) => parseInt(row.msg_id))
   }
 }
