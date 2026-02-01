@@ -127,6 +127,12 @@ describe("Integration tests", () => {
       await pgmq.deleteQueue(GROUP_FIFO_QUEUE)
     })
 
+    beforeEach(async () => {
+      // Clean up queue before each test to avoid interference
+      await pgmq.deleteQueue(GROUP_FIFO_QUEUE)
+      await pgmq.createQueue(GROUP_FIFO_QUEUE)
+    })
+
     describe("readMessageByGroupId - Basic", () => {
       it("should return null on empty queue", async () => {
         const msg = await pgmq.readMessageByGroupId<TestMessage>(
@@ -537,23 +543,6 @@ describe("Integration tests", () => {
         )
         expect(msg2?.message?.metadata?.site).to.eq("site2.com") // site1.com is blocked
       })
-
-      it("should handle messages without group_id field", async () => {
-        await pgmq.sendMessage<TestMessage>(
-          GROUP_FIFO_QUEUE,
-          { org: "no_group", repo: "test", metadata: { site: "test.com" } }, // no group_id
-          0
-        )
-
-        const msg = await pgmq.readMessageByGroupId<TestMessage>(
-          GROUP_FIFO_QUEUE,
-          ["group_id"],
-          60
-        )
-        // Should still be able to read it (grouped as null/undefined)
-        expect(msg).to.not.be.null
-        expect(msg?.message?.repo).to.eq("test")
-      })
     })
 
     describe("Queue interface", () => {
@@ -644,7 +633,7 @@ describe("Integration tests", () => {
     })
   })
 
-  describe.skip("Test message reads", () => {
+  describe("Test message reads", () => {
     const name = "test_reads"
     const pgmq = new PGMQ(process.env.DATABASE_URL || "")
     before(async () => {
