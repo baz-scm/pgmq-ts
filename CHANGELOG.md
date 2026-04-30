@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.10](https://github.com/baz-scm/pgmq-ts/compare/v0.3.9...v0.3.10) (2026-04-23)
+
+
+### 🐛 Bug Fixes
+
+* bump packages ([#60](https://github.com/baz-scm/pgmq-ts/issues/60)) ([e6c6813](https://github.com/baz-scm/pgmq-ts/commit/e6c681398e42c0f52e564ad1d1611faf07798791))
+
 ## [0.3.9](https://github.com/baz-scm/pgmq-ts/compare/v0.3.8...v0.3.9) (2026-03-05)
 
 
