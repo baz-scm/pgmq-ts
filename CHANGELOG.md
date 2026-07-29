@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.12](https://github.com/baz-scm/pgmq-ts/compare/v0.3.11...v0.3.12) (2026-07-29)
+
+
+### 🐛 Bug Fixes
+
+* pin pnpm to 11.18.0 so pnpm trusted publishing works ([#64](https://github.com/baz-scm/pgmq-ts/issues/64)) ([e128cf3](https://github.com/baz-scm/pgmq-ts/commit/e128cf3d1ebd29c7b7fc02ac42576154d0459358))
+
 ## [0.3.11](https://github.com/baz-scm/pgmq-ts/compare/v0.3.10...v0.3.11) (2026-07-29)
 
 
