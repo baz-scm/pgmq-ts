@@ -1,4 +1,4 @@
-import { Pool } from "pg"
+import { Pool, PoolConfig } from "pg"
 import { parseDbMessage } from "./types"
 import {
   archiveQuery,
@@ -21,12 +21,17 @@ const BIGGEST_CONCAT = "archived_at_idx_"
 const MAX_PGMQ_QUEUE_LEN = NAMELEN - 1 - BIGGEST_CONCAT.length
 
 /** This is the central class this library exports
- * @constructor requires a valid PG connection string. Example: postgresql://user:password@localhost:5432/pgmq  **/
+ * @constructor requires a valid PG connection string. Example: postgresql://user:password@localhost:5432/pgmq
+ * Optionally takes pg PoolConfig options, e.g. { ssl: { ca, checkServerIdentity } } for a
+ * server whose certificate needs a private CA.  **/
 export class Pgmq {
   private readonly pool: Pool
 
-  public constructor(connectionString: string) {
-    this.pool = new Pool({ connectionString })
+  public constructor(
+    connectionString: string,
+    poolConfig?: Omit<PoolConfig, "connectionString">
+  ) {
+    this.pool = new Pool({ ...poolConfig, connectionString })
   }
 
   public async end() {
