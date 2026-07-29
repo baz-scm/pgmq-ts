@@ -31,7 +31,7 @@ export class Pgmq {
     connectionString: string,
     poolConfig?: Omit<PoolConfig, "connectionString">
   ) {
-    this.pool = new Pool({ connectionString, ...poolConfig })
+    this.pool = new Pool({ ...poolConfig, connectionString })
   }
 
   public async end() {
