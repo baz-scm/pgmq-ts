@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.11](https://github.com/baz-scm/pgmq-ts/compare/v0.3.10...v0.3.11) (2026-07-29)
+
+
+### ✨ New Features
+
+* accept pg PoolConfig options in the Pgmq constructor ([#62](https://github.com/baz-scm/pgmq-ts/issues/62)) ([94c5206](https://github.com/baz-scm/pgmq-ts/commit/94c520647ddf8f2b0684420757761abc4da19f0d))
+
 ## [0.3.10](https://github.com/baz-scm/pgmq-ts/compare/v0.3.9...v0.3.10) (2026-04-23)
 
 
