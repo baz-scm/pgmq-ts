@@ -633,11 +633,11 @@ describe("Integration tests", () => {
     })
   })
 
-  describe("Test message reads", () => {
+  describe("Test message reads", function () {
+    this.timeout(30000)
     const name = "test_reads"
     const pgmq = new PGMQ(process.env.DATABASE_URL || "")
-    before(async function () {
-      this.timeout(30000)
+    before(async () => {
       await pgmq.createQueue(name)
       // Write 1000 messages to the queue concurrently to avoid the hook
       // timeout from 1000 sequential round trips
