@@ -633,27 +633,30 @@ describe("Integration tests", () => {
     })
   })
 
-  describe("Test message reads", () => {
+  describe("Test message reads", function () {
+    this.timeout(30000)
     const name = "test_reads"
     const pgmq = new PGMQ(process.env.DATABASE_URL || "")
     before(async () => {
       await pgmq.createQueue(name)
-      // Write 1000 messages to the queue
-      for (const i of Array(1000).keys()) {
-        console.log(`Sending message ${i}`)
-        await pgmq.sendMessage<TestMessage>(
-          name,
-          {
-            org: "test",
-            repo: "burst",
-            metadata: {
-              site: "baz.co",
-              index: i,
+      // Write 1000 messages to the queue concurrently to avoid the hook
+      // timeout from 1000 sequential round trips
+      await Promise.all(
+        Array.from({ length: 1000 }, (_, i) =>
+          pgmq.sendMessage<TestMessage>(
+            name,
+            {
+              org: "test",
+              repo: "burst",
+              metadata: {
+                site: "baz.co",
+                index: i,
+              },
             },
-          },
-          0
+            0
+          )
         )
-      }
+      )
     })
 
     after(async () => {
