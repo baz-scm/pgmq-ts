@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.13](https://github.com/baz-scm/pgmq-ts/compare/v0.3.12...v0.3.13) (2026-10-18)
+
+
+### 🐛 Bug Fixes
+
+* **deps:** override js-yaml to ^4.3.2 (maxTotalMergeKeys CPU advisory) ([#67](https://github.com/baz-scm/pgmq-ts/issues/67)) ([ebe8d4a](https://github.com/baz-scm/pgmq-ts/commit/ebe8d4ac2b0768eb463ebb508defdd47dd7a0e74))
+
 ## [0.3.12](https://github.com/baz-scm/pgmq-ts/compare/v0.3.11...v0.3.12) (2026-07-29)
 
 
