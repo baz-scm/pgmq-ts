@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.14](https://github.com/baz-scm/pgmq-ts/compare/v0.3.13...v0.3.14) (2026-10-19)
+
+
+### 🐛 Bug Fixes
+
+* **deps:** refresh brace-expansion and @humanfs/node in lockfile ([#69](https://github.com/baz-scm/pgmq-ts/issues/69)) ([af362ff](https://github.com/baz-scm/pgmq-ts/commit/af362ff5dc1a3b80ce6087695eafa94a346246e4))
+
 ## [0.3.13](https://github.com/baz-scm/pgmq-ts/compare/v0.3.12...v0.3.13) (2026-10-18)
 
 
